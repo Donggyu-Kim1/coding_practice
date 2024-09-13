@@ -1,7 +1,10 @@
+from collections import deque
+
 def solution(numbers, direction):
-    answer = []
+    num = deque(numbers)
     if direction == 'right':
-        return [numbers.pop()] + numbers
+        num.rotate(1)
     else:
-        value = numbers.pop(0)
-        return numbers + [value]
+        num.rotate(-1)
+        
+    return list(num)
